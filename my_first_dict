@@ -1,0 +1,48 @@
+print("Добро пожаловать в переводчик из гигского на русский :)")
+choice=None
+gigskiy={"404":"Ошбика, понятия не имею что означает",
+         "google":"Поисковая система в браузере",
+         "rofl":"Смайлик, интерпретируется как смеющееся лицо",
+         "lol":"Смайлик, смеятся во все лицо"}
+while choice!='0':
+    print(
+        """
+        Переводчик с гигского на русский
+        0 - выйти
+        1 - Найти толкование термина
+        2 - Добавить термина
+        3 - Изменить толкование
+        4 - удалить термин
+        
+        """
+        )
+    choice=input('Выберите номер из списка\n')
+    if choice=='0':
+        print("До новых встреч")
+    elif choice=='1':
+        term=input("Введите наименование термина\n")
+        if term in gigskiy:
+            print(gigskiy[term])
+        else:
+            print("указанный термин не найден")
+    elif choice=='2':
+        kluch=input("Введите слово ключ\n")
+        if kluch not in gigskiy:
+            zna4enie=input("Введите толкование термина\n")
+            gigskiy[kluch]=zna4enie
+            print("\nТермин",kluch,"добавлен в словарь")
+        else:
+            print("Извините :( такой термин уже есть")
+    elif choice=='3':
+        term=input("введите наименование термина, которые хотите изменить\n")
+        if term in gigskiy:
+            zna4enie_change=input("Введите новое толкование термина\n")
+            gigskiy[term]=zna4enie_change
+            print("Поздравляю! Толкование термина",term,"успешно изменено.")
+    elif choice=='4':
+        del_termin=input('Введите термин, который хотите удалить\n')
+        if del_termin in gigskiy:
+            del gigskiy[del_termin]
+            print("Поздравляю!Термин",del_termin,"успешно удален.")
+        else:
+            print("Данного термина нет в словаре")
